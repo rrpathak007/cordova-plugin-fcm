@@ -31,7 +31,7 @@ public class FCMPlugin extends CordovaPlugin {
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
 		gWebView = webView;
-		Log.d(TAG, "==> FCMPlugin initialize");
+		Log.d(TAG, "==> FCMPlugin initialize Rahul Test");
 		FirebaseMessaging.getInstance().subscribeToTopic("android");
 		FirebaseMessaging.getInstance().subscribeToTopic("all");
 	}
@@ -121,8 +121,9 @@ public class FCMPlugin extends CordovaPlugin {
 	}
 	
 	public static void sendPushPayload(Map<String, Object> payload) {
-		Log.d(TAG, "==> FCMPlugin sendPushPayload");
-		Log.d(TAG, "\tnotificationCallBackReady: " + notificationCallBackReady);
+		Log.e(TAG, "==> FCMPlugin Rahul Test");
+		Log.e(TAG, "==> FCMPlugin sendPushPayload");
+		Log.e(TAG, "\tnotificationCallBackReady: " + notificationCallBackReady);
 		Log.d(TAG, "\tgWebView: " + gWebView);
 	    try {
 		    JSONObject jo = new JSONObject();
