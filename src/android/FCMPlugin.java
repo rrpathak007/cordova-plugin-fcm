@@ -123,24 +123,24 @@ public class FCMPlugin extends CordovaPlugin {
 	public static void sendPushPayload(Map<String, Object> payload) {
 		Log.e(TAG, "==> FCMPlugin Rahul Test");
 		Log.e(TAG, "==> FCMPlugin sendPushPayload");
-		Log.e(TAG, "\tnotificationCallBackReady: " + notificationCallBackReady);
-		Log.d(TAG, "\tgWebView: " + gWebView);
+		Log.e(TAG, "notificationCallBackReady: " + notificationCallBackReady);
+		Log.e(TAG, "gWebView: " + gWebView);
 	    try {
 		    JSONObject jo = new JSONObject();
 			for (String key : payload.keySet()) {
 			    jo.put(key, payload.get(key));
-				Log.d(TAG, "\tpayload: " + key + " => " + payload.get(key));
+				Log.e(TAG, "payload: " + key + " => " + payload.get(key));
             }
 			String callBack = "javascript:" + notificationCallBack + "(" + jo.toString() + ")";
 			if(notificationCallBackReady && gWebView != null){
-				Log.d(TAG, "\tSent PUSH to view: " + callBack);
+				Log.e(TAG, "Sent PUSH to view: " + callBack);
 				gWebView.sendJavascript(callBack);
 			}else {
-				Log.d(TAG, "\tView not ready. SAVED NOTIFICATION: " + callBack);
+				Log.e(TAG, "View not ready. SAVED NOTIFICATION: " + callBack);
 				lastPush = payload;
 			}
 		} catch (Exception e) {
-			Log.d(TAG, "\tERROR sendPushToView. SAVED NOTIFICATION: " + e.getMessage());
+			Log.e(TAG, "\tERROR sendPushToView. SAVED NOTIFICATION: " + e.getMessage());
 			lastPush = payload;
 		}
 	}
